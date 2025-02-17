@@ -42,3 +42,16 @@ def register_user(request):
     else:
         form = SignUpForm()
         return render(request, 'register.html' , {'form': form})
+
+def customer_record(request, pk):
+    if request.user.is_authenticated:
+        try:
+            customer_record = Record.objects.get(id=pk)
+        except:
+            messages.error(request, 'id is wrong.')
+            return redirect('home')
+        return render(request, 'record.html', {'customer_record':customer_record})
+    else:
+        messages.error(request, 'Please log in...')
+        return redirect('home')
+

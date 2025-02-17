@@ -2,11 +2,11 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        <table class="table">
-            <thead>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="table-dark">
 
             <tr>
-                <th scope="col">ID</th>
+                <th scope="col">ID-1</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Phone</th>
@@ -24,7 +24,10 @@
 
                     {% for record in records %}
                         <tr>
-                            <td> {{ record.id }} </td>
+                            
+
+            
+                            <td> <a href="{% url 'record' record.id %}">{{ record.id }}</a> </td>
                             <td> {{ record.first_name }} {{ record.last_name }} </td>
                             <td> {{ record.email }} </td>
                             <td> {{ record.phone }} </td>
@@ -33,6 +36,7 @@
                             <td> {{ record.state }} </td>
                             <td> {{ record.zipcode }} </td>
                             <td> {{ record.created_at }} </td>
+                            </a>
                         </tr>
                     {% endfor %}
 
