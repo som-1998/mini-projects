@@ -96,11 +96,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'  # Indian Standard Time (IST)
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False  # Store datetimes in IST instead of UTC
+
 
 
 # Static files (CSS, JavaScript, Images)
